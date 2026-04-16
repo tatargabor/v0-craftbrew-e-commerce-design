@@ -1,7 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import { Instagram, Facebook, Youtube, Mail, MapPin } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
+
+const COOKIE_CONSENT_KEY = "craftbrew-cookie-consent"
 
 const FOOTER_NAV = {
   shop: {
@@ -48,9 +52,10 @@ const SOCIAL_LINKS = [
 ]
 
 const LEGAL_LINKS = [
-  { label: 'ÁSZF', href: '/aszf' },
-  { label: 'Adatvédelmi', href: '/adatvedelem' },
-  { label: 'Cookie szabályzat', href: '/cookie-szabalyzat' },
+  { label: 'ÁSZF', href: '/hu/aszf' },
+  { label: 'Adatvédelmi', href: '/hu/adatvedelem' },
+  { label: 'Cookie szabályzat', href: '/hu/cookie' },
+  { label: 'Cookie beállítások', href: '#', isCookieSettings: true },
 ]
 
 export function SiteFooter() {
@@ -139,13 +144,25 @@ export function SiteFooter() {
           </p>
           <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             {LEGAL_LINKS.map((link, index) => (
-              <span key={link.href} className="flex items-center">
-                <Link
-                  href={link.href}
-                  className="text-xs text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
+              <span key={link.label} className="flex items-center">
+                {'isCookieSettings' in link && link.isCookieSettings ? (
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem(COOKIE_CONSENT_KEY)
+                      window.location.reload()
+                    }}
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </Link>
+                )}
                 {index < LEGAL_LINKS.length - 1 && (
                   <span className="ml-4 text-border sm:ml-6">·</span>
                 )}
