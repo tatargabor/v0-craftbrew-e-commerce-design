@@ -10,6 +10,7 @@ import {
   RefreshCw,
   Heart,
   LogOut,
+  LayoutDashboard,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -32,8 +33,13 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const navItems = [
   {
-    label: "Adataim",
+    label: "Áttekintés",
     href: "/fiokom",
+    icon: LayoutDashboard,
+  },
+  {
+    label: "Adataim",
+    href: "/fiokom/adataim",
     icon: User,
   },
   {
