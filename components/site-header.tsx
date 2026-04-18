@@ -114,7 +114,7 @@ export function SiteHeader({
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex lg:items-center lg:gap-1">
+            <nav className="hidden overflow-hidden lg:flex lg:items-center lg:gap-1">
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`)
                 return (
