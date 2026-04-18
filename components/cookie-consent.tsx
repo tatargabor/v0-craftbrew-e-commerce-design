@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -189,7 +190,7 @@ export function CookieConsent() {
                 Sütiket használunk a weboldal működéséhez és a felhasználói
                 élmény javításához.{" "}
                 <Link
-                  href="/hu/cookie"
+                  href={ROUTES.cookies}
                   className="text-primary hover:underline"
                 >
                   Tudj meg többet
@@ -227,7 +228,7 @@ export function CookieConsent() {
                     Sütiket használunk a weboldal működéséhez és a felhasználói
                     élmény javításához.{" "}
                     <Link
-                      href="/hu/cookie"
+                      href={ROUTES.cookies}
                       className="text-primary hover:underline"
                     >
                       Tudj meg többet

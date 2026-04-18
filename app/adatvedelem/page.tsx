@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
+import { ROUTES } from "@/lib/routes"
 
 export const metadata: Metadata = {
   title: "Adatvédelmi Szabályzat | CraftBrew",
@@ -158,7 +159,7 @@ export default function AdatvedelemPage() {
         </p>
         <p className="text-muted-foreground leading-relaxed">
           6.4. <strong>Cookie adatok:</strong> lásd{" "}
-          <a href="/hu/cookie" className="text-primary hover:underline">
+          <a href={ROUTES.cookies} className="text-primary hover:underline">
             Cookie Szabályzat
           </a>
         </p>

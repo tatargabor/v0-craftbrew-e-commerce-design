@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { CheckCircle2, Package, MapPin, CreditCard } from "lucide-react"
+import { CheckCircle2, Package, MapPin } from "lucide-react"
+import { ROUTES } from "@/lib/routes"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -195,12 +196,12 @@ export function OrderConfirmation({
         className="flex flex-col sm:flex-row gap-3 mt-6"
       >
         <Button asChild className="flex-1">
-          <Link href="/fiok/rendelesek">
+          <Link href={ROUTES.orders}>
             Rendeléseim
           </Link>
         </Button>
         <Button asChild variant="outline" className="flex-1">
-          <Link href="/kavek">
+          <Link href={ROUTES.coffees}>
             Tovább vásárolok
           </Link>
         </Button>

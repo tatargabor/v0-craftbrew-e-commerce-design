@@ -14,6 +14,7 @@ import {
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { ROUTES } from "@/lib/routes"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -34,32 +35,32 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 const navItems = [
   {
     label: "Áttekintés",
-    href: "/fiokom",
+    href: ROUTES.account,
     icon: LayoutDashboard,
   },
   {
     label: "Adataim",
-    href: "/fiokom/adataim",
+    href: ROUTES.accountProfile,
     icon: User,
   },
   {
     label: "Címeim",
-    href: "/fiokom/cimek",
+    href: ROUTES.accountAddresses,
     icon: MapPin,
   },
   {
     label: "Rendeléseim",
-    href: "/rendeleseink",
+    href: ROUTES.orders,
     icon: Package,
   },
   {
     label: "Előfizetéseim",
-    href: "/fiokom/elofizetesek",
+    href: ROUTES.accountSubscriptions,
     icon: RefreshCw,
   },
   {
     label: "Kedvenceim",
-    href: "/fiokom/kedvencek",
+    href: ROUTES.accountWishlist,
     icon: Heart,
   },
 ]
@@ -91,8 +92,8 @@ export function AccountLayout({ children, user }: AccountLayoutProps) {
 
   // Find active nav item
   const activeItem = navItems.find((item) => {
-    if (item.href === "/fiokom") {
-      return pathname === "/fiokom"
+    if (item.href === ROUTES.account) {
+      return pathname === ROUTES.account
     }
     return pathname.startsWith(item.href)
   })
@@ -127,8 +128,8 @@ export function AccountLayout({ children, user }: AccountLayoutProps) {
             <SidebarGroupContent>
               <SidebarMenu>
                 {navItems.map((item) => {
-                  const isActive = item.href === "/fiokom" 
-                    ? pathname === "/fiokom"
+                  const isActive = item.href === ROUTES.account 
+                    ? pathname === ROUTES.account
                     : pathname.startsWith(item.href)
                   
                   return (
@@ -170,11 +171,11 @@ export function AccountLayout({ children, user }: AccountLayoutProps) {
         {/* Mobile Tab Navigation */}
         <div className="md:hidden sticky top-0 z-10 bg-background border-b">
           <div className="overflow-x-auto scrollbar-hide">
-            <Tabs value={activeItem?.href ?? "/fiokom"} className="w-max min-w-full">
+            <Tabs value={activeItem?.href ?? ROUTES.account} className="w-max min-w-full">
               <TabsList className="h-auto p-1 bg-transparent gap-1">
                 {navItems.map((item) => {
-                  const isActive = item.href === "/fiokom" 
-                    ? pathname === "/fiokom"
+                  const isActive = item.href === ROUTES.account 
+                    ? pathname === ROUTES.account
                     : pathname.startsWith(item.href)
                   
                   return (

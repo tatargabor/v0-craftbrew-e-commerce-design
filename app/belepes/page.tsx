@@ -10,6 +10,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { AuthLayout } from "@/components/auth-layout"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -120,7 +121,7 @@ export default function LoginPage() {
                     <div className="flex items-center justify-between">
                       <FormLabel>Jelszó</FormLabel>
                       <Link
-                        href="/hu/jelszo-csere"
+                        href={ROUTES.passwordReset}
                         className="text-sm text-primary hover:text-primary/80 transition-colors"
                       >
                         Elfelejtett jelszó?
@@ -209,7 +210,7 @@ export default function LoginPage() {
               size="lg"
               asChild
             >
-              <Link href="/hu/regisztracio">
+              <Link href={ROUTES.register}>
                 Regisztráció
               </Link>
             </Button>

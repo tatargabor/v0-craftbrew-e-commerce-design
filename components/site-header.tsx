@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { ROUTES } from '@/lib/routes'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -35,12 +36,12 @@ import { Separator } from '@/components/ui/separator'
 import { SearchPalette } from '@/components/search-palette'
 
 const NAV_LINKS = [
-  { href: '/kavek', label: 'Kávék' },
-  { href: '/eszkozok', label: 'Eszközök' },
-  { href: '/merch', label: 'Merch' },
-  { href: '/csomagok', label: 'Csomagok' },
-  { href: '/elofizetes', label: 'Előfizetés' },
-  { href: '/sztorik', label: 'Sztorik' },
+  { href: ROUTES.coffees, label: 'Kávék' },
+  { href: ROUTES.equipment, label: 'Eszközök' },
+  { href: ROUTES.merch, label: 'Merch' },
+  { href: ROUTES.bundles, label: 'Csomagok' },
+  { href: ROUTES.subscription, label: 'Előfizetés' },
+  { href: ROUTES.stories, label: 'Sztorik' },
 ] as const
 
 interface SiteHeaderProps {
@@ -104,7 +105,7 @@ export function SiteHeader({
           <div className="flex h-16 items-center justify-between lg:h-20">
             {/* Logo */}
             <Link
-              href="/"
+              href={ROUTES.home}
               className="flex-shrink-0 transition-opacity hover:opacity-80"
             >
               <span className="font-serif text-2xl font-bold tracking-tight text-foreground lg:text-3xl">
@@ -170,7 +171,7 @@ export function SiteHeader({
                 asChild
                 className="relative hidden text-muted-foreground hover:text-foreground sm:flex"
               >
-                <Link href="/kedvencek" aria-label="Kedvencek">
+                <Link href={ROUTES.accountWishlist} aria-label="Kedvencek">
                   <Heart className="size-5" />
                   {wishlistCount > 0 && (
                     <span className="absolute -top-0.5 -right-0.5 flex size-4 items-center justify-center rounded-full bg-secondary text-[10px] font-semibold text-secondary-foreground">
@@ -187,7 +188,7 @@ export function SiteHeader({
                 asChild
                 className="relative text-muted-foreground hover:text-foreground"
               >
-                <Link href="/kosar" aria-label={`Kosár${cartCount > 0 ? ` (${displayCartCount} termék)` : ''}`}>
+                <Link href={ROUTES.cart} aria-label={`Kosár${cartCount > 0 ? ` (${displayCartCount} termék)` : ''}`}>
                   <motion.div
                     animate={cartBounce ? { scale: [1, 1.2, 1] } : {}}
                     transition={{ duration: 0.3 }}
@@ -240,19 +241,19 @@ export function SiteHeader({
                     </div>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
-                      <Link href="/fiokom">
+                      <Link href={ROUTES.account}>
                         <User className="mr-2 size-4" />
                         Fiókom
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/rendeleseim">
+                      <Link href={ROUTES.orders}>
                         <ShoppingBag className="mr-2 size-4" />
                         Rendeléseim
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/kedvencek">
+                      <Link href={ROUTES.accountWishlist}>
                         <Heart className="mr-2 size-4" />
                         Kedvenceim
                       </Link>
@@ -275,7 +276,7 @@ export function SiteHeader({
                   asChild
                   className="hidden text-muted-foreground hover:text-foreground sm:flex"
                 >
-                  <Link href="/belepes" aria-label="Bejelentkezés">
+                  <Link href={ROUTES.login} aria-label="Bejelentkezés">
                     <LogIn className="size-5" />
                   </Link>
                 </Button>
@@ -342,7 +343,7 @@ export function SiteHeader({
                       </div>
                     ) : (
                       <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                        <Link href="/belepes" onClick={() => setMobileMenuOpen(false)}>
+                        <Link href={ROUTES.login} onClick={() => setMobileMenuOpen(false)}>
                           <LogIn className="mr-2 size-4" />
                           Bejelentkezés
                         </Link>
@@ -357,7 +358,7 @@ export function SiteHeader({
                         asChild
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Link href="/kedvencek">
+                        <Link href={ROUTES.accountWishlist}>
                           <Heart className="mr-2 size-4" />
                           Kedvencek
                           {wishlistCount > 0 && (
@@ -383,14 +384,14 @@ export function SiteHeader({
                         <Separator />
                         <div className="flex flex-col gap-2">
                           <Link
-                            href="/fiokom"
+                            href={ROUTES.account}
                             onClick={() => setMobileMenuOpen(false)}
                             className="py-2 text-sm hover:text-primary"
                           >
                             Fiókom
                           </Link>
                           <Link
-                            href="/rendeleseim"
+                            href={ROUTES.orders}
                             onClick={() => setMobileMenuOpen(false)}
                             className="py-2 text-sm hover:text-primary"
                           >

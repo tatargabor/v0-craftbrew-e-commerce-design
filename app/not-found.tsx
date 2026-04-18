@@ -7,6 +7,7 @@ import { Search, Home, Coffee, BookOpen, Mail } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { ROUTES } from '@/lib/routes'
 
 // Empty cup illustration - branded, editorial feel
 function EmptyCupIllustration() {
@@ -174,13 +175,13 @@ export default function NotFound() {
         {/* Secondary links */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/kavek">
+            <Link href={ROUTES.coffees}>
               <Coffee className="mr-2 h-4 w-4" />
               Kavek
             </Link>
           </Button>
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/sztorik">
+            <Link href={ROUTES.stories}>
               <BookOpen className="mr-2 h-4 w-4" />
               Sztorik
             </Link>

@@ -12,6 +12,7 @@ import { CartSummary, CartSummarySkeleton } from "@/components/cart-summary"
 import { Button } from "@/components/ui/button"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
+import { ROUTES } from "@/lib/routes"
 
 // Demo cart items
 const DEMO_CART_ITEMS = [
@@ -219,7 +220,7 @@ export default function CartPage() {
           {/* Header */}
           <div className="mb-8">
             <Link 
-              href="/kavek"
+              href={ROUTES.coffees}
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
             >
               <ArrowLeft className="size-4" />
@@ -426,7 +427,7 @@ function EmptyCart() {
       </p>
 
       <Button asChild size="lg">
-        <Link href="/kavek">
+        <Link href={ROUTES.coffees}>
           Vásárlás folytatása
         </Link>
       </Button>

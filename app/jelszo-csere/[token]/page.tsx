@@ -10,6 +10,7 @@ import { AlertCircle, ArrowLeft, CheckCircle2, Eye, EyeOff, Loader2 } from "luci
 import { motion, AnimatePresence } from "framer-motion"
 
 import { AuthLayout } from "@/components/auth-layout"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -133,7 +134,7 @@ export default function PasswordResetPage({
                     size="lg"
                     asChild
                   >
-                    <Link href="/hu/jelszo-csere">
+                    <Link href={ROUTES.passwordReset}>
                       Új link kérése
                     </Link>
                   </Button>
@@ -143,7 +144,7 @@ export default function PasswordResetPage({
                     className="w-full"
                     asChild
                   >
-                    <Link href="/hu/belepes">
+                    <Link href={ROUTES.login}>
                       <ArrowLeft className="mr-2 h-4 w-4" />
                       Vissza a bejelentkezéshez
                     </Link>
@@ -186,7 +187,7 @@ export default function PasswordResetPage({
                   size="lg"
                   asChild
                 >
-                  <Link href="/hu/belepes">
+                  <Link href={ROUTES.login}>
                     Bejelentkezés
                   </Link>
                 </Button>
@@ -313,7 +314,7 @@ export default function PasswordResetPage({
                   className="w-full mt-4"
                   asChild
                 >
-                  <Link href="/hu/belepes">
+                  <Link href={ROUTES.login}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Vissza a bejelentkezéshez
                   </Link>

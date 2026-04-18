@@ -19,9 +19,12 @@ import {
   Settings,
   LogOut,
   Coffee,
+  Mail,
+  Component,
 } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { ROUTES } from '@/lib/routes'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
   DropdownMenu,
@@ -59,39 +62,41 @@ const NAV_ITEMS = [
   {
     group: 'Főmenü',
     items: [
-      { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-      { label: 'Termékek', href: '/admin/termekek', icon: Package },
-      { label: 'Rendelések', href: '/admin/rendelesek', icon: ShoppingCart },
-      { label: 'Szállítások', href: '/admin/szallitasok', icon: Truck },
-      { label: 'Előfizetések', href: '/admin/elofizetesek', icon: RefreshCw },
+      { label: 'Dashboard', href: ROUTES.admin, icon: LayoutDashboard },
+      { label: 'Termékek', href: ROUTES.adminProducts, icon: Package },
+      { label: 'Rendelések', href: ROUTES.adminOrders, icon: ShoppingCart },
+      { label: 'Szállítások', href: ROUTES.adminDeliveries, icon: Truck },
+      { label: 'Előfizetések', href: ROUTES.adminSubscriptions, icon: RefreshCw },
     ],
   },
   {
     group: 'Marketing',
     items: [
-      { label: 'Kuponok', href: '/admin/kuponok', icon: Ticket },
-      { label: 'Akció napok', href: '/admin/akcio-napok', icon: Calendar },
-      { label: 'Ajándékkártyák', href: '/admin/ajandekkartya', icon: Gift },
+      { label: 'Kuponok', href: ROUTES.adminCoupons, icon: Ticket },
+      { label: 'Akció napok', href: ROUTES.adminPromos, icon: Calendar },
+      { label: 'Ajándékkártyák', href: ROUTES.adminGiftCards, icon: Gift },
     ],
   },
   {
     group: 'Tartalom',
     items: [
-      { label: 'Értékelések', href: '/admin/ertekelések', icon: Star },
-      { label: 'Sztorik', href: '/admin/sztorik', icon: FileText },
+      { label: 'Értékelések', href: ROUTES.adminReviews, icon: Star },
+      { label: 'Sztorik', href: ROUTES.adminStories, icon: FileText },
     ],
   },
   {
     group: 'Ügyfelek',
     items: [
-      { label: 'Visszaküldések', href: '/admin/visszakuldesek', icon: RotateCcw },
-      { label: 'Felhasználók', href: '/admin/felhasznalok', icon: Users },
+      { label: 'Visszaküldések', href: ROUTES.adminReturns, icon: RotateCcw },
+      { label: 'Felhasználók', href: ROUTES.adminUsers, icon: Users },
     ],
   },
   {
     group: 'Rendszer',
     items: [
-      { label: 'Beállítások', href: '/admin/beallitasok', icon: Settings },
+      { label: 'Beállítások', href: ROUTES.adminSettings, icon: Settings },
+      { label: 'Email sablonok', href: ROUTES.adminEmailTemplates, icon: Mail },
+      { label: 'Komponensek', href: ROUTES.adminComponents, icon: Component },
     ],
   },
 ]
@@ -104,12 +109,14 @@ const BREADCRUMB_LABELS: Record<string, string> = {
   elofizetesek: 'Előfizetések',
   kuponok: 'Kuponok',
   'akcio-napok': 'Akció napok',
-  ajandekkartya: 'Ajándékkártyák',
-  ertekelések: 'Értékelések',
+  ajandekkartyak: 'Ajándékkártyák',
+  ertekelesek: 'Értékelések',
   sztorik: 'Sztorik',
   visszakuldesek: 'Visszaküldések',
   felhasznalok: 'Felhasználók',
   beallitasok: 'Beállítások',
+  'email-templates': 'Email sablonok',
+  komponensek: 'Komponensek',
 }
 
 // Mock admin user
@@ -126,7 +133,7 @@ function AdminSidebarContent() {
     <>
       <SidebarHeader className="border-b border-sidebar-border">
         <Link
-          href="/admin"
+          href={ROUTES.admin}
           className="flex items-center gap-3 px-4 py-3"
         >
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -153,7 +160,7 @@ function AdminSidebarContent() {
               <SidebarMenu>
                 {group.items.map((item) => {
                   const isActive = pathname === item.href || 
-                    (item.href !== '/admin' && pathname.startsWith(item.href))
+                    (item.href !== ROUTES.admin && pathname.startsWith(item.href))
                   return (
                     <SidebarMenuItem key={item.href}>
                       <SidebarMenuButton
@@ -208,14 +215,14 @@ function AdminSidebarContent() {
                 sideOffset={4}
               >
                 <DropdownMenuItem asChild>
-                  <Link href="/admin/beallitasok">
+                  <Link href={ROUTES.adminSettings}>
                     <Settings className="mr-2 h-4 w-4" />
                     Beállítások
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link href="/" className="text-destructive">
+                  <Link href={ROUTES.home} className="text-destructive">
                     <LogOut className="mr-2 h-4 w-4" />
                     Kijelentkezés
                   </Link>

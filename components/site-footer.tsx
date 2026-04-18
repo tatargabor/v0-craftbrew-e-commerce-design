@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Instagram, Facebook, Youtube, Mail, MapPin } from 'lucide-react'
 
 import { Separator } from '@/components/ui/separator'
+import { ROUTES } from '@/lib/routes'
 
 const COOKIE_CONSENT_KEY = "craftbrew-cookie-consent"
 
@@ -11,36 +12,33 @@ const FOOTER_NAV = {
   shop: {
     title: 'Kávék',
     links: [
-      { label: 'Összes kávé', href: '/kavek' },
-      { label: 'Szemes kávé', href: '/kavek/szemes' },
-      { label: 'Őrölt kávé', href: '/kavek/orolt' },
-      { label: 'Előfizetés', href: '/elofizetes' },
+      { label: 'Összes kávé', href: ROUTES.coffees },
+      { label: 'Előfizetés', href: ROUTES.subscription },
     ],
   },
   equipment: {
     title: 'Eszközök',
     links: [
-      { label: 'Pour over', href: '/eszkozok/pour-over' },
-      { label: 'French press', href: '/eszkozok/french-press' },
-      { label: 'Darálók', href: '/eszkozok/daralok' },
-      { label: 'Kiegészítők', href: '/eszkozok/kiegeszitok' },
+      { label: 'Összes eszköz', href: ROUTES.equipment },
+      { label: 'Merch', href: ROUTES.merch },
+      { label: 'Csomagok', href: ROUTES.bundles },
     ],
   },
   info: {
     title: 'Információ',
     links: [
-      { label: 'Sztorik', href: '/sztorik' },
-      { label: 'Rólunk', href: '/rolunk' },
-      { label: 'Szállítás', href: '/szallitas' },
-      { label: 'Kapcsolat', href: '/kapcsolat' },
+      { label: 'Sztorik', href: ROUTES.stories },
+      { label: 'Rólunk', href: ROUTES.about },
+      { label: 'Szállítás', href: ROUTES.shipping },
+      { label: 'Kapcsolat', href: ROUTES.contact },
     ],
   },
   support: {
     title: 'Segítség',
     links: [
-      { label: 'GYIK', href: '/gyik' },
-      { label: 'Visszaküldés', href: '/visszakuldes' },
-      { label: 'Nagykereskedelem', href: '/nagykereskedelem' },
+      { label: 'GYIK', href: ROUTES.faq },
+      { label: 'Visszaküldés', href: ROUTES.returns },
+      { label: 'Nagykereskedelem', href: ROUTES.wholesale },
     ],
   },
 }
@@ -52,9 +50,9 @@ const SOCIAL_LINKS = [
 ]
 
 const LEGAL_LINKS = [
-  { label: 'ÁSZF', href: '/hu/aszf' },
-  { label: 'Adatvédelmi', href: '/hu/adatvedelem' },
-  { label: 'Cookie szabályzat', href: '/hu/cookie' },
+  { label: 'ÁSZF', href: ROUTES.terms },
+  { label: 'Adatvédelmi', href: ROUTES.privacy },
+  { label: 'Cookie szabályzat', href: ROUTES.cookies },
   { label: 'Cookie beállítások', href: '#', isCookieSettings: true },
 ]
 
@@ -66,7 +64,7 @@ export function SiteFooter() {
         <div className="grid gap-12 py-16 lg:grid-cols-12 lg:gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block">
+            <Link href={ROUTES.home} className="inline-block">
               <span className="font-serif text-3xl font-bold tracking-tight text-foreground">
                 CraftBrew
               </span>

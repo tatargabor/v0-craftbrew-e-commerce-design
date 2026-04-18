@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Star, Heart, ArrowRight, Search, Coffee, BookOpen } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { ROUTES } from "@/lib/routes"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -778,7 +779,7 @@ export default function SearchResultsPage() {
               </div>
 
               <Button asChild>
-                <Link href="/kavek">Böngéssz a kávék között</Link>
+                <Link href={ROUTES.coffees}>Böngéssz a kávék között</Link>
               </Button>
             </motion.div>
           ) : (

@@ -28,6 +28,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
+import { ROUTES } from "@/lib/routes"
 
 // Step definitions
 const STEPS = [
@@ -454,7 +455,7 @@ function DeliveryStep({
           ))}
         </RadioGroup>
         <Button variant="outline" size="sm" asChild>
-          <Link href="/fiokom/cimek">+ Új cím hozzáadása</Link>
+          <Link href={ROUTES.accountAddresses}>+ Új cím hozzáadása</Link>
         </Button>
       </div>
 
@@ -668,7 +669,7 @@ export default function SubscriptionWizardPage() {
     setIsSubmitting(true)
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500))
-    router.push("/fiokom/elofizetesek?created=true")
+    router.push(`${ROUTES.accountSubscriptions}?created=true`)
   }
 
   return (
@@ -678,7 +679,7 @@ export default function SubscriptionWizardPage() {
         <div className="container max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link
-              href="/kavek"
+              href={ROUTES.coffees}
               className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <ChevronLeft className="h-4 w-4" />

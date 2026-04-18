@@ -26,6 +26,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { ROUTES } from "@/lib/routes"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -205,7 +206,7 @@ export default function StoryDetailPage({
         {/* Back button */}
         <div className="absolute top-4 left-4 md:top-8 md:left-8">
           <Button variant="secondary" size="sm" asChild className="bg-background/80 backdrop-blur-sm">
-            <Link href="/sztorik">
+            <Link href={ROUTES.stories}>
               <ArrowLeft className="mr-1 h-4 w-4" />
               Vissza
             </Link>
@@ -235,7 +236,7 @@ export default function StoryDetailPage({
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/sztorik">Sztorik</Link>
+                  <Link href={ROUTES.stories}>Sztorik</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator>

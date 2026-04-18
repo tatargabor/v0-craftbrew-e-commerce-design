@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { LegalPageLayout } from "@/components/legal-page-layout"
+import { ROUTES } from "@/lib/routes"
 
 export const metadata: Metadata = {
   title: "Általános Szerződési Feltételek | CraftBrew",
@@ -183,7 +184,7 @@ export default function ASZFPage() {
         </p>
         <p className="text-muted-foreground leading-relaxed">
           8.2. A részletes adatkezelési tájékoztató elérhető:{" "}
-          <a href="/hu/adatvedelem" className="text-primary hover:underline">
+          <a href={ROUTES.privacy} className="text-primary hover:underline">
             Adatvédelmi Szabályzat
           </a>
         </p>

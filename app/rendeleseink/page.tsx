@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Package, ChevronRight, Truck, CheckCircle, Clock } from "lucide-react"
+import { ROUTES } from "@/lib/routes"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -200,7 +201,7 @@ export default function RendeleseinkPage() {
             Fedezd fel kávéinkat és rendeld meg az első csomagod!
           </p>
           <Button asChild>
-            <Link href="/kavek">Kávék böngészése</Link>
+            <Link href={ROUTES.coffees}>Kávék böngészése</Link>
           </Button>
         </div>
       )}

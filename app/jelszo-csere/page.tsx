@@ -9,6 +9,7 @@ import { ArrowLeft, CheckCircle2, Loader2, Mail } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { AuthLayout } from "@/components/auth-layout"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -111,7 +112,7 @@ export default function PasswordResetRequestPage() {
                     className="w-full"
                     asChild
                   >
-                    <Link href="/hu/belepes">
+                    <Link href={ROUTES.login}>
                       <ArrowLeft className="mr-2 h-4 w-4" />
                       Vissza a bejelentkezéshez
                     </Link>
@@ -181,7 +182,7 @@ export default function PasswordResetRequestPage() {
                   className="w-full mt-4"
                   asChild
                 >
-                  <Link href="/hu/belepes">
+                  <Link href={ROUTES.login}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Vissza a bejelentkezéshez
                   </Link>

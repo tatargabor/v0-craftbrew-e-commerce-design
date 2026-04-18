@@ -10,6 +10,7 @@ import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { AuthLayout } from "@/components/auth-layout"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -75,7 +76,7 @@ export default function RegisterPage() {
     }
     
     // Success - redirect to login
-    router.push("/hu/belepes?registered=true")
+    router.push(`${ROUTES.login}?registered=true`)
   }
 
   return (
@@ -272,11 +273,11 @@ export default function RegisterPage() {
                     <div className="leading-none">
                       <Label className="text-sm font-normal cursor-pointer">
                         Elfogadom az{" "}
-                        <Link href="/aszf" className="text-primary hover:underline">
+                        <Link href={ROUTES.terms} className="text-primary hover:underline">
                           ÁSZF
                         </Link>
                         -et és az{" "}
-                        <Link href="/adatvedelem" className="text-primary hover:underline">
+                        <Link href={ROUTES.privacy} className="text-primary hover:underline">
                           Adatvédelmi szabályzat
                         </Link>
                         ot
@@ -308,7 +309,7 @@ export default function RegisterPage() {
           <p className="mt-6 text-center text-sm text-muted-foreground">
             Van már fiókod?{" "}
             <Link
-              href="/hu/belepes"
+              href={ROUTES.login}
               className="text-primary font-medium hover:underline"
             >
               Bejelentkezés
