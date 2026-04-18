@@ -6,6 +6,7 @@ import { ArrowRight, Package, Heart, MapPin, User, Edit } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { ROUTES } from "@/lib/routes"
 
 // Demo data
 const userData = {
@@ -62,7 +63,7 @@ export default function FiokomPage() {
                 <CardTitle className="text-lg font-medium">Adataim</CardTitle>
               </div>
               <Link 
-                href="/fiokom" 
+                href={ROUTES.account} 
                 className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Edit className="h-4 w-4" />
@@ -87,7 +88,7 @@ export default function FiokomPage() {
                 <CardTitle className="text-lg font-medium">Címeim</CardTitle>
               </div>
               <Link 
-                href="/fiokom/cimek" 
+                href={ROUTES.accountAddresses} 
                 className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors group-hover:translate-x-0.5"
               >
                 <span>Mind</span>
@@ -113,7 +114,7 @@ export default function FiokomPage() {
                 <CardTitle className="text-lg font-medium">Rendeléseim</CardTitle>
               </div>
               <Link 
-                href="/rendeleseink" 
+                href={ROUTES.orders} 
                 className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors group-hover:translate-x-0.5"
               >
                 <span>Mind</span>
@@ -145,7 +146,7 @@ export default function FiokomPage() {
                 <CardTitle className="text-lg font-medium">Kedvenceim</CardTitle>
               </div>
               <Link 
-                href="/fiokom/kedvencek" 
+                href={ROUTES.accountWishlist} 
                 className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors group-hover:translate-x-0.5"
               >
                 <span>Mind</span>

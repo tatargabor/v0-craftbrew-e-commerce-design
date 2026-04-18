@@ -14,6 +14,7 @@ import {
   Loader2,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { ROUTES } from "@/lib/routes"
 import { Badge } from "@/components/ui/badge"
 import {
   Breadcrumb,
@@ -230,13 +231,13 @@ export default function ProductDetailPage() {
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/kavek">Kávék</Link>
+                  <Link href={ROUTES.coffees}>Kávék</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/kavek?origin=etiopia">Etiópia</Link>
+                  <Link href={`${ROUTES.coffees}?origin=etiopia`}>Etiópia</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />

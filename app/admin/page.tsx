@@ -26,6 +26,7 @@ import {
 } from 'recharts'
 
 import { cn } from '@/lib/utils'
+import { ROUTES } from '@/lib/routes'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -340,7 +341,7 @@ export default function AdminDashboardPage() {
               <CardDescription>Legtöbbet eladott termékek</CardDescription>
             </div>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/admin/termekek">
+              <Link href={ROUTES.adminProducts}>
                 Összes
                 <ArrowUpRight className="ml-1 h-3 w-3" />
               </Link>
@@ -406,7 +407,7 @@ export default function AdminDashboardPage() {
               <CardDescription>Termékek, amik hamarosan elfogynak</CardDescription>
             </div>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/admin/termekek?filter=low-stock">
+              <Link href={`${ROUTES.adminProducts}?filter=low-stock`}>
                 Összes
                 <ArrowUpRight className="ml-1 h-3 w-3" />
               </Link>

@@ -22,6 +22,8 @@ import { addDays, format, isSameDay, startOfMonth, endOfMonth, eachDayOfInterval
 import { hu } from "date-fns/locale"
 import { motion, AnimatePresence } from "framer-motion"
 
+import { ROUTES } from "@/lib/routes"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -635,7 +637,7 @@ function EmptyState() {
         A friss kávé magától érkezik.
       </p>
       <Button asChild size="lg">
-        <Link href="/hu/elofizetes/uj">
+        <Link href={ROUTES.subscriptionNew}>
           <Package className="mr-2 h-5 w-5" />
           Indíts egyet
         </Link>
@@ -735,7 +737,7 @@ export default function ElofizetesekPage() {
             {showEmpty ? "Mutasd" : "Üres állapot"}
           </Button>
           <Button asChild>
-            <Link href="/hu/elofizetes/uj">
+            <Link href={ROUTES.subscriptionNew}>
               <Package className="mr-2 h-4 w-4" />
               Új előfizetés
             </Link>

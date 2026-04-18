@@ -7,6 +7,7 @@ import { Search, Coffee, ArrowLeft } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { ROUTES } from '@/lib/routes'
 
 // Empty bag illustration - product not found variant
 function EmptyBagIllustration() {
@@ -156,7 +157,7 @@ export default function ProductNotFound() {
         {/* Primary CTA */}
         <div className="mt-8">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <Link href="/kavek">
+            <Link href={ROUTES.coffees}>
               <Coffee className="mr-2 h-4 w-4" />
               Vissza a kavekhoz
             </Link>

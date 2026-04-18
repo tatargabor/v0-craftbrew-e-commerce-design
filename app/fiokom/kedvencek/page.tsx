@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { ROUTES } from "@/lib/routes"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -321,7 +322,7 @@ export default function KedvencekPage() {
             </p>
 
             <Button asChild size="lg">
-              <Link href="/kavek">
+              <Link href={ROUTES.coffees}>
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 Vásárlás folytatása
               </Link>
