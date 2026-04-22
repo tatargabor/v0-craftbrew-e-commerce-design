@@ -4,8 +4,6 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 import { Plus, Minus, Coffee, Package, ShoppingBag } from 'lucide-react'
 
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter } from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -24,16 +22,7 @@ export default function DemoPage() {
   const [locale, setLocale] = React.useState<'hu' | 'en'>('hu')
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader
-        user={isSignedIn ? DEMO_USER : null}
-        cartCount={cartCount}
-        wishlistCount={wishlistCount}
-        locale={locale}
-        onLocaleChange={setLocale}
-      />
-
-      <main className="flex-1 pt-16 lg:pt-20">
+    <div className="pt-16 lg:pt-20">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-b from-amber-50/50 to-background">
           <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
@@ -231,9 +220,6 @@ export default function DemoPage() {
             </p>
           </div>
         </section>
-      </main>
-
-      <SiteFooter />
     </div>
   )
 }
