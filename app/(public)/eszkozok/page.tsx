@@ -1,39 +1,35 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { Button } from "@/components/ui/button"
 import { ROUTES } from "@/lib/routes"
 
 export const metadata = {
-  title: "Merch | CraftBrew",
-  description: "CraftBrew márkás termékek - bögrék, pólók és kiegészítők",
+  title: "Eszközök | CraftBrew",
+  description: "Prémium kávékészítő eszközök - daralók, kávéfőzők és kiegészítők",
 }
 
-export default function MerchPage() {
+export default function EszkozokPage() {
   return (
-    <>
-      <SiteHeader />
-      <main className="min-h-[60vh] flex items-center justify-center bg-background">
+    <div className="min-h-[60vh] flex items-center justify-center bg-background">
         <div className="text-center px-4 py-16 max-w-xl">
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-secondary/50 flex items-center justify-center">
             <svg viewBox="0 0 64 64" className="w-10 h-10 text-primary">
               <path
                 fill="currentColor"
-                d="M48 16H16c-2.2 0-4 1.8-4 4v8c0 2.2 1.8 4 4 4h2v16c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4V32h2c2.2 0 4-1.8 4-4v-8c0-2.2-1.8-4-4-4zM16 28v-8h32v8h-2V20H18v8h-2zm24 20H22V32h18v16z"
+                d="M32 8c-8 0-14.5 6.5-14.5 14.5V28H14c-1.1 0-2 .9-2 2v24c0 1.1.9 2 2 2h36c1.1 0 2-.9 2-2V30c0-1.1-.9-2-2-2h-3.5v-5.5C46.5 14.5 40 8 32 8zm-8.5 20v-5.5c0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5V28h-17z"
               />
             </svg>
           </div>
           <h1 className="text-4xl font-serif font-bold text-foreground mb-4">
-            Merch
+            Eszközök
           </h1>
           <p className="text-lg text-muted-foreground mb-2">
             Hamarosan!
           </p>
           <p className="text-muted-foreground mb-8">
-            A CraftBrew márkás termékek kollekciója készül.
-            Bögrék, pólók és exkluzív kiegészítők várnak rád.
+            A prémium kávékészítő eszközök kollekciónk rövidesen elérhető lesz.
+            Daralók, pour-over készletek, French press és még sok más.
           </p>
           <Button asChild>
             <Link href={ROUTES.coffees}>
@@ -42,8 +38,6 @@ export default function MerchPage() {
             </Link>
           </Button>
         </div>
-      </main>
-      <SiteFooter />
-    </>
+    </div>
   )
 }

@@ -5,8 +5,6 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ShoppingBag, ArrowLeft, Coffee } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { CartItem, CartItemSkeleton } from "@/components/cart-item"
 import { CartSummary, CartSummarySkeleton } from "@/components/cart-summary"
 import { Button } from "@/components/ui/button"
@@ -212,10 +210,7 @@ export default function CartPage() {
   const showLoading = demoState === "loading" || isLoading
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <SiteHeader cartCount={displayItems.reduce((sum, item) => sum + item.quantity, 0)} />
-      
-      <main className="flex-1">
+    <>
         <div className="container max-w-6xl mx-auto px-4 py-8 lg:py-12">
           {/* Header */}
           <div className="mb-8">
@@ -394,11 +389,8 @@ export default function CartPage() {
             </div>
           </div>
         )}
-      </main>
-
-      <SiteFooter className={displayItems.length > 0 ? "pb-24 lg:pb-0" : ""} />
       <Toaster position="bottom-right" />
-    </div>
+    </>
   )
 }
 
