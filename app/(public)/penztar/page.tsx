@@ -204,7 +204,7 @@ export default function CheckoutPage() {
   // Redirect anonymous users
   React.useEffect(() => {
     if (!isSignedIn) {
-      router.push("/bejelentkezes?redirect=/penztar")
+      router.push("/belepes?redirect=/penztar")
     }
   }, [isSignedIn, router])
 

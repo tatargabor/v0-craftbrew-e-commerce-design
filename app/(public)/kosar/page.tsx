@@ -182,7 +182,7 @@ export default function CartPage() {
 
   const handleCheckout = async () => {
     if (!isSignedIn) {
-      router.push("/bejelentkezes?redirect=/kosar")
+      router.push("/belepes?redirect=/kosar")
       return
     }
     
